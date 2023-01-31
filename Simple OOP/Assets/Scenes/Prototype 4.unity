@@ -316,7 +316,7 @@ MonoBehaviour:
   enemyPrefab:
   - {fileID: 5376228222698902751, guid: 78600b783ca03c948bf3948ebad63d65, type: 3}
   - {fileID: 5376228222698902751, guid: 41d46f8346161e64a9d457a93fada65b, type: 3}
-  - {fileID: 5376228222698902751, guid: 78600b783ca03c948bf3948ebad63d65, type: 3}
+  - {fileID: 5376228222698902751, guid: 41799b3aa9a9671438e48e3a7cfefc43, type: 3}
   powerupPrefab: {fileID: 8979016059678843056, guid: 7d390110ceefe6447b4a4a15d1648d64,
     type: 3}
   enemyCount: 0
@@ -843,9 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5020cb7a90e83419daad4c60396e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   powerupIndicator: {fileID: 906141668}
-  hasPowerup: 0
 --- !u!1001 &7305732181041295649
 PrefabInstance:
   m_ObjectHideFlags: 0

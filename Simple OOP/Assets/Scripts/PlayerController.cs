@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float powerupStrenght = 10.0f;
-    public float speed = 5.0f;
+    private float speed = 5.0f;
     private Rigidbody playerRb;
     private GameObject focalPoint;
-    public GameObject powerupIndicator;
-    public bool hasPowerup = false;
+    [SerializeField] private GameObject powerupIndicator;
+    private bool hasPowerup = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
-        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+        Move();
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -45,6 +43,8 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.gameObject.SetActive(false);
     }
 
+    
+
     private void OnCollisionEnter(Collision collision) 
     {
         if(collision.gameObject.CompareTag("Enemy") && hasPowerup)
@@ -54,5 +54,11 @@ public class PlayerController : MonoBehaviour
 
             enemyRigidbody.AddForce(awayFromPlayer * powerupStrenght, ForceMode.Impulse);
         }
+    }
+    private void Move()
+    {
+        float forwardInput = Input.GetAxis("Vertical");
+        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 }
